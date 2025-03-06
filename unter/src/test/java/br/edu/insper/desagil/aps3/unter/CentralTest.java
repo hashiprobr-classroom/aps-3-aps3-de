@@ -36,18 +36,18 @@ public class CentralTest {
     @Test
     void avaliacoesPassageiro(){
         passageiro = new Passageiro("123", "Ricardo");
+        passageiro2 = new Passageiro("321", "odraciR");
+
         corrida0 = new Corrida(passageiro);
         corrida1 = new Corrida(passageiro);
         corrida2 = new Corrida(passageiro);
+        corrida3 = new Corrida(passageiro2);
 
         corrida1.avaliaPassageiro(4);
         central.corridas.add(corrida1);
 
         corrida2.avaliaPassageiro(5);
         central.corridas.add(corrida2);
-
-        passageiro2 = new Passageiro("321", "odraciR");
-        corrida3 = new Corrida(passageiro2);
 
         corrida3.avaliaPassageiro(3);
         central.corridas.add(corrida3);
@@ -58,33 +58,32 @@ public class CentralTest {
     @Test
     void avaliacoesMotorista(){
         motorista = new Motorista("123", "Ricardo");
+        motorista2 = new Motorista("321", "odraciR");
+
+        corrida0 = new Corrida(passageiro);
         corrida1 = new Corrida(passageiro);
-        corrida2 = new Corrida(passageiro);
+        corrida2 = new Corrida(passageiro2);
+        corrida3 = new Corrida(passageiro2);
+        corrida4 = new Corrida(passageiro2);
 
+        corrida0.setMotorista(motorista);
         corrida1.setMotorista(motorista);
-        corrida2.setMotorista(motorista);
+        corrida2.setMotorista(motorista2);
+        corrida3.setMotorista(motorista2);
 
-        corrida1.avaliaMotorista(2);
+        corrida0.avaliaMotorista(2);
+        central.corridas.add(corrida0);
+
+        corrida1.avaliaMotorista(3);
         central.corridas.add(corrida1);
 
-        corrida2.avaliaMotorista(3);
+        corrida2.avaliaMotorista(1);
         central.corridas.add(corrida2);
-
-        motorista2 = new Motorista("321", "odraciR");
-        corrida3 = new Corrida(passageiro2);
-        corrida3.setMotorista(motorista2);
 
         corrida3.avaliaMotorista(1);
         central.corridas.add(corrida3);
 
-        corrida4 = new Corrida(passageiro2);
-        corrida4.setMotorista(motorista2);
-
         corrida4.avaliaMotorista(1);
-        central.corridas.add(corrida4);
-
-        corrida5 = new Corrida(passageiro2);
-        corrida5.avaliaMotorista(1);
 
         assertEquals(2.5, central.mediaMotorista("123"));
     }
