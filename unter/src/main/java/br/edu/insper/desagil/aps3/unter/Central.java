@@ -38,10 +38,8 @@ public class Central {
         }
         for (Corrida corrida : corridas){
             if(corrida.motorista.getCPF().equals(CPF)){
-                if(corrida.notaPassageiro != 0){
-                    media += corrida.notaPassageiro;
+                    media += corrida.notaMotorista;
                     n += 1;
-                }
             }
         }
         return media / (double) n;

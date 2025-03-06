@@ -13,7 +13,12 @@ public class CentralTest {
     Passageiro passageiro2;
     Motorista motorista;
     Motorista motorista2;
-    Corrida corrida;
+    Corrida corrida0;
+    Corrida corrida1;
+    Corrida corrida2;
+    Corrida corrida3;
+    Corrida corrida4;
+    Corrida corrida5;
 
     @BeforeEach
     void setUp() {
@@ -33,22 +38,21 @@ public class CentralTest {
     @Test
     void avaliacoesPassageiro(){
         passageiro = new Passageiro("123", "Ricardo");
-        corrida = new Corrida(passageiro);
+        corrida0 = new Corrida(passageiro);
+        corrida1 = new Corrida(passageiro);
+        corrida2 = new Corrida(passageiro);
 
-        corrida.avaliaPassageiro(0);
-        central.corridas.add(corrida);
+        corrida1.avaliaPassageiro(4);
+        central.corridas.add(corrida1);
 
-        corrida.avaliaPassageiro(4);
-        central.corridas.add(corrida);
-
-        corrida.avaliaPassageiro(5);
-        central.corridas.add(corrida);
+        corrida2.avaliaPassageiro(5);
+        central.corridas.add(corrida2);
 
         passageiro2 = new Passageiro("321", "odraciR");
-        corrida = new Corrida(passageiro2);
+        corrida3 = new Corrida(passageiro2);
 
-        corrida.avaliaPassageiro(3);
-        central.corridas.add(corrida);
+        corrida3.avaliaPassageiro(3);
+        central.corridas.add(corrida3);
 
         assertEquals(4.5, central.mediaPassageiro("123"));
     }
@@ -56,28 +60,33 @@ public class CentralTest {
     @Test
     void avaliacoesMotorista(){
         motorista = new Motorista("123", "Ricardo");
-        corrida = new Corrida(passageiro);
-        corrida.setMotorista(motorista);
+        corrida1 = new Corrida(passageiro);
+        corrida2 = new Corrida(passageiro);
 
-        corrida.avaliaMotorista(0);
-        central.corridas.add(corrida);
+        corrida1.setMotorista(motorista);
+        corrida2.setMotorista(motorista);
 
-        corrida.avaliaMotorista(2);
-        central.corridas.add(corrida);
+        corrida1.avaliaMotorista(2);
+        central.corridas.add(corrida1);
 
-        corrida.avaliaMotorista(3);
-        central.corridas.add(corrida);
+        corrida2.avaliaMotorista(3);
+        central.corridas.add(corrida2);
 
         motorista2 = new Motorista("321", "odraciR");
-        corrida = new Corrida(passageiro2);
-        corrida.setMotorista(motorista2);
+        corrida3 = new Corrida(passageiro2);
+        corrida3.setMotorista(motorista2);
 
-        corrida.avaliaMotorista(1);
-        central.corridas.add(corrida);
+        corrida3.avaliaMotorista(1);
+        central.corridas.add(corrida3);
 
-        corrida = new Corrida(passageiro2);
-        corrida.avaliaMotorista(1);
-        central.corridas.add(corrida);
+        corrida4 = new Corrida(passageiro2);
+        corrida4.setMotorista(motorista2);
+
+        corrida4.avaliaMotorista(1);
+        central.corridas.add(corrida4);
+
+        corrida5 = new Corrida(passageiro2);
+        corrida5.avaliaMotorista(1);
 
         assertEquals(2.5, central.mediaMotorista("123"));
     }
