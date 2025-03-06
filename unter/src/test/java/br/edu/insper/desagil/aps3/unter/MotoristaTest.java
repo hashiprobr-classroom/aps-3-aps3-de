@@ -4,16 +4,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 
 public class MotoristaTest {
     Motorista motorista;
     Corrida corrida;
+    Passageiro passageiro;
 
     @BeforeEach
     void setUp() {
         motorista = new Motorista("47374423802", "Danilo Correa Ramos");
-        corrida = new Corrida(mock(Passageiro.class));
+        passageiro = new Passageiro("123", "Riardo");
+        corrida = new Corrida(passageiro);
     }
 
     @Test
